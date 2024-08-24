@@ -29,6 +29,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// Header toggle
+const headerToggleBtn = document.querySelector('.header-toggle');
+
+function headerToggle() {
+  document.querySelector('#header').classList.toggle('header-show');
+  headerToggleBtn.classList.toggle('bi-list');
+  headerToggleBtn.classList.toggle('bi-x');
+}
+headerToggleBtn.addEventListener('click', headerToggle);
+
+
+document.querySelectorAll('.navmenu a').forEach(navmenu => {
+  navmenu.addEventListener('click', () => {
+    if (document.querySelector('.header-show')) {
+      headerToggle();
+    }
+  });
+});
+  
 // Theme selection function
 document.addEventListener('DOMContentLoaded', function() {
     const themeToggleButton = document.getElementById('theme-toggle');
